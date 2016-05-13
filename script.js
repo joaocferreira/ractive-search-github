@@ -18,8 +18,8 @@ var results = new Ractive({
 
 });
 
-  function query() {
-    if ( search.get('term') ){
+search.on( 'makeQuery', function() {
+   if ( search.get('term') ){
       var params = {
         q : search.get('term'),
         per_page : 10,
@@ -34,11 +34,9 @@ var results = new Ractive({
           });
         });
     }
-  };
-
-search.on( 'makeQuery', query());
+});
 
 results.on( 'nextPage', function() {
   results.set('page_counter', results.get('page_counter') + 1);
-  query();
+  search.fire( 'makeQuery' );
 });
