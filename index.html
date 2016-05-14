@@ -2,8 +2,6 @@
 <html>
 
   <head>
-    <link rel="stylesheet" href="style.css" />
-
     <title>Ractive test</title>
   </head>
 
@@ -21,7 +19,6 @@
       {{#if total_count}}
         <h3>{{total_count}} results</h3>
         <button on-click="nextPage">Next</button>
-
         {{#reps}}
           <p>{{name}}</p>
         {{/each}}

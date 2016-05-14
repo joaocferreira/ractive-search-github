@@ -13,7 +13,8 @@ var results = new Ractive({
   template: '#results',
 
   data: {
-    page_counter : 1
+    page_counter : 1,
+    show_next: false
   }
 
 });
@@ -25,7 +26,6 @@ search.on( 'makeQuery', function() {
         per_page : 10,
         page: results.get('page_counter')
       };
-
       $.get( url , params)
         .done( function(data) {
           results.set({
